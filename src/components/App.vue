@@ -1,67 +1,107 @@
 <template>
-    <Page>
-        <ActionBar>
-            <GridLayout width="100%" columns="auto, *">
-                <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
-                <Label class="title" text="Welcome to NativeScript-Vue!"  col="1"/>
-            </GridLayout>
-        </ActionBar>
+  <Page>
+    <ActionBar>
+      <GridLayout width="100%" columns="auto, *">
+        <Label
+          text="Menu"
+          @tap="$refs.drawer.nativeView.showDrawer()"
+          col="0"
+        />
+        <Label class="title" text="Pokédex 1.0.0" col="1" />
+      </GridLayout>
+    </ActionBar>
 
-        <RadSideDrawer ref="drawer">
-            <StackLayout ~drawerContent backgroundColor="#ffffff">
-                <Label class="drawer-header" text="Drawer"/>
+    <RadSideDrawer ref="drawer">
+      <StackLayout ~drawerContent backgroundColor="#ffffff">
+        <Label class="drawer-header" text="Drawer" />
 
-                <Label class="drawer-item" text="Item 1"/>
-                <Label class="drawer-item" text="Item 2"/>
-                <Label class="drawer-item" text="Item 3"/>
-            </StackLayout>
+        <Button
+          text="Abrir Pokédex"
+          @tap="goToPokedex()"
+          class="drawerContentButton"
+        ></Button>
+      </StackLayout>
 
-            <GridLayout ~mainContent columns="*" rows="*">
-                <Label class="message" :text="msg" col="0" row="0"/>
-            </GridLayout>
-        </RadSideDrawer>
-    </Page>
+      <StackLayout  ~mainContent>
+        <Label class="message" :text="msg" height="70"/>
+
+        <Image src="~/assets/images/pokedex.png" class="thumb" @tap="goToPokedex()"/>
+      </StackLayout >
+    </RadSideDrawer>
+  </Page>
 </template>
 
-<script >
-  export default {
-    data() {
-      return {
-        msg: 'Hello World!'
-      }
-    }
-  }
+<script>
+import Lista from "./Lista";
+
+export default {
+  data() {
+    return {
+      msg: "Abra sua Pokédex clicando abaixo!",
+    };
+  },
+  methods: {
+    goToPokedex() {
+      this.$navigateTo(Lista);
+    },
+  },
+};
 </script>
 
 <style scoped>
-    ActionBar {
-        background-color: #53ba82;
-        color: #ffffff;
-    }
+ActionBar {
+  background-color: #53ba82;
+  color: #ffffff;
+}
 
-    .title {
-        text-align: left;
-        padding-left: 16;
-    }
+.title {
+  text-align: left;
+  padding-left: 16;
+}
 
-    .message {
-        vertical-align: center;
-        text-align: center;
-        font-size: 20;
-        color: #333333;
-    }
+.message {
+  vertical-align: center;
+  text-align: center;
+  font-size: 20;
+  color: #333333;
+  margin-top: 100px;
+}
 
-    .drawer-header {
-        padding: 50 16 16 16;
-        margin-bottom: 16;
-        background-color: #53ba82;
-        color: #ffffff;
-        font-size: 24;
-    }
+.drawer-header {
+  padding: 50 16 16 16;
+  margin-bottom: 16;
+  background-color: #53ba82;
+  color: #ffffff;
+  font-size: 24;
+}
 
-    .drawer-item {
-        padding: 8 16;
-        color: #333333;
-        font-size: 16;
-    }
+.drawer-item {
+  padding: 8 16;
+  color: #333333;
+  font-size: 16;
+}
+
+.openPokedexButton {
+  padding: 8 16;
+  height: 100px;
+}
+
+.thumb {
+  width: 300;
+}
+
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
+    font-weight: 400;
+}
 </style>

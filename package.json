@@ -5,16 +5,19 @@
   "description": "A native application built with NativeScript-Vue",
   "author": "Rafael Framil <raframil@gmail.com>",
   "license": "MIT",
-  "dependencies": { 
+  "dependencies": {
+    "@nativescript/core": "^7.0.3",
+    "axios": "^0.21.1",
     "nativescript-ui-sidedrawer": "^9.0.0",
     "nativescript-vue": "^2.8.1",
-    "@nativescript/core": "^7.0.3"
+    "vue-router": "^3.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "babel-loader": "^8.1.0",
+    "@nativescript/android": "8.0.0",
     "@nativescript/webpack": "^3.0.4",
+    "babel-loader": "^8.1.0",
     "nativescript-vue-template-compiler": "^2.8.1",
     "nativescript-worker-loader": "~0.12.1",
     "sass": "^1.26.10",
